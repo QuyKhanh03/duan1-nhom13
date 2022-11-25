@@ -16,7 +16,7 @@
                     <div class="header-top-action">
                         <ul>
                             <?php if(isset($_SESSION["user"])) {
-                                echo "Hello ". $_SESSION["user"]->fullname . '<a style="margin-left:10px; color: #000;" name="func" href="logout.php?func=exit"><i class="fa-solid fa-right-from-bracket"></i></a>';
+                                echo "Hello ". $_SESSION["user"]->username . '<a style="margin-left:10px; color: #000;" name="func" href="logout.php?func=exit"><i class="fa-solid fa-right-from-bracket"></i></a>';
                                 
                             } else {
                                 echo '<li class="sign-in"><a href="login.php">Sign In</a></li>';

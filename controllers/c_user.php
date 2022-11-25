@@ -64,12 +64,21 @@ class c_user
             $pass2 = $_POST["password1"];
             // echo $email;
             if($pass2 === $password) {
+
+                
+                $result = $m_user->addAccount($fullname,$email,md5($password),$id_role);
+                
+                if($result) {
+                    // echo print_r($result);
+                    // die();
+
                 $result = $m_user->addAccount($fullname,md5($password),$email,$id_role);
                 
                 if($result) {
                 //     echo "<pre>";
                 // echo print_r($result);
                 // die();
+
                     header("location:login.php");
                 }
                 
