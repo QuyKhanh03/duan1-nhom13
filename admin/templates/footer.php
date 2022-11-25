@@ -17,6 +17,7 @@
     <script src="public/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="public/dist/js/custom.min.js"></script>
+    
     <!--This page JavaScript -->
     <!-- <script src="public/dist/js/pages/dashboards/dashboard1.js"></script> -->
     <!-- Charts js Files -->
@@ -29,6 +30,7 @@
     <script src="public/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="public/dist/js/pages/chart/chart-page-init.js"></script>
 
+    
 </body>
 
 </html>

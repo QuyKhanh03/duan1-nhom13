@@ -134,41 +134,36 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                    <div class="row">
-                                <canvas  id="myChart" style="width:100%;max-width:600px;margin: auto;" ></canvas>
-                                <script>
-                                    var xValues = [ "Tổng sản phẩm", " Tổng người dùng","Loại sản phẩm"];
-                                    var yValues = [<?php echo $total_product ?>, <?php echo $total_user ?>,<?php echo $total_categories ?>]
-                                    var barColors = [
-                                        "#b91d47",
-                                        "#00aba9",
-                                        "#2b5797",
-                                        
-            
-                                    ];
-                                    new Chart("myChart", {
-                                        type: "pie",
-                                        data: {
-                                            labels: xValues,
-                                            datasets: [{
-                                                backgroundColor: barColors,
-                                                data: yValues
-                                            }]
-                                        },
-                                        options: {
-                                            title: {
-                                                display: true,
-                                                text: ""
-                                            }
-                                        }
-                                    });
-                                </script>
-                            </div>
+                        <table class="table" border="1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Họ và tên</td>
+                                    <td>Tên đăng nhập</td>
+                                    <td>Email</td>
+                                    <td>Mật khẩu</td>
+                                    <td>Vai trò</td>
+                                    <td>#</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($listUsers as $key => $value) { ?>
+                                <tr>
+                                    <td><?php echo $value->id_user ?></td>
+                                    <td><?php echo $value->fullname ?></td>
+                                    <td><?php echo $value->username ?></td>
+                                    <td><?php echo $value->email ?></td>
+                                    <td><?php echo $value->password ?></td>
+                                    <td><?php echo $value ->role  ?></td>
+                                    <td><a href="deleteUser.php?id=<?php echo $value->id_user ?>"><i class="fa-solid fa-trash"></i></a> <span style="margin: 0 8px;"></span> <a href="editUser.php?id=<?php echo $value->id_user ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        
         <!-- ============================================================== -->
         <!-- Sales chart -->
         <!-- ============================================================== -->

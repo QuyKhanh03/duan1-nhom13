@@ -16,10 +16,10 @@ class m_user extends database {
         $this-> setQuery($sql);
         return $this->loadRow(array($email));
     }
-    public function addAccount($username,$email,$password,$id_role) {
-        $sql = "insert into users(username,email,password,id_role) 
+    public function addAccount($username,$password,$email,$id_role) {
+        $sql = "insert into users(fullname,password,email,id_role) 
         values (?,?,?,?) ";
         $this->setQuery($sql);
-        return $this->execute(array($username,$email,$password,$id_role));
+        return $this->execute(array($username,$password,$email,$id_role));
     }
 }
