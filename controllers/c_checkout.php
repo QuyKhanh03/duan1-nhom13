@@ -34,7 +34,7 @@ class c_checkout
                     $gio_hang = $c_cart->cart();
                     echo "<pre>";
                     echo print_r($gio_hang);
-                    // die();
+                     die();
                     foreach($gio_hang as $key => $item) {
                         if(substr($key,0,1)=='t') {
                             $m_checkout->orderDetail($order,substr($key,1,strlen($key)-1),$value,0);
