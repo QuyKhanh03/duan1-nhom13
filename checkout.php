@@ -1,4 +1,9 @@
 <?php 
 include "controllers/c_checkout.php";
-$checkout = new c_checkout();
-$checkout->checkout();
+$c_checkout = new c_checkout();
+if(isset($_GET["key"])) {
+    $key = $_GET["key"];
+    if($key == 'dat-hang') {
+        $c_checkout->checkout();
+    }
+}

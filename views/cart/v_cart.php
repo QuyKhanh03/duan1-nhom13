@@ -96,8 +96,8 @@
                             </div> -->
                         </div>
                     </form>
-                    <a href="checkout.php" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">PROCEED TO CHECKOUT</a>
-
+                    <!-- <a href="checkout.php" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">PROCEED TO CHECKOUT</a> -->
+                    <input type="button" class="btn-primary" style="margin: 30px 0 ; background-color: #36363b; color: #fff;" onclick="window.location.href = 'checkout.php?key=dat-hang'" value="PROCEED TO CHECKOUT" />
                 </div>
             </div>
         </div>

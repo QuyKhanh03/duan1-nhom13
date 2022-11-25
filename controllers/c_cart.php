@@ -42,7 +42,13 @@ class c_cart
             header("location:index.php");
         }
     }
-    
+    public function cart() {
+        if(isset($_SESSION["cart"])) {
+            return $_SESSION["cart"];
+        }else {
+            return false;
+        }
+    }
     public function xoa1_hang_ve_cart()
     {
         if (isset($_GET["id_cart"])) {
@@ -56,7 +62,6 @@ class c_cart
                     }
                 }
             }
-            
             // array_slice($_SESSION["cart"], $_GET["id_cart"], 1);
         } else {
             $_SESSION["cart"] = [];
@@ -84,5 +89,6 @@ class c_cart
         header("location:index.php");
     }
     // 
+    
     
 }
