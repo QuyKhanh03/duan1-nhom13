@@ -9,8 +9,7 @@ class c_cart
     public function xem_gio_hang()
     {
         if (isset($_POST["add-cart"])) {
-            if (isset($_SESSION["user"])) {
-                $id = $_POST["product_id"];
+            $id = $_POST["product_id"];
                 $name = $_POST["ten-sp"];
                 $image = $_POST["hinh"];
                 $price = $_POST["gia"];
@@ -18,9 +17,6 @@ class c_cart
                 $total = $price * $quantily;
                 $prd_add = [$id, $name, $image, $price, $quantily, $total];
                 array_push($_SESSION["cart"], $prd_add);
-            } else {
-                echo "<script>alert('Bạn cần đăng nhập')</script>";
-            }
 
             // echo "<pre>";
             // echo print_r($_SESSION["cart"]);
@@ -32,8 +28,7 @@ class c_cart
     function lay_gio_hang()
     {
         if (isset($_POST["add-cart"])) {
-            if (isset($_SESSION["user"])) {
-                $id = $_POST["product_id"];
+            $id = $_POST["product_id"];
                 $name = $_POST["ten-sp"];
                 $image = $_POST["hinh"];
                 $price = $_POST["gia"];
@@ -45,11 +40,6 @@ class c_cart
                 // die();
 
                 header("location:index.php");
-            } else {
-                header("location:index.php");
-                // echo "<script>alert('Bạn cần đăng nhập')</script>";
-                
-            }
         }
     }
 
@@ -65,7 +55,6 @@ class c_cart
     {
         if (isset($_GET["id_cart"])) {
             // echo $_GET["id_cart"];
-           if(isset($_SESSION["user"])) {
             $id_cart = $_GET["id_cart"];
             // die();
             if (!empty($_SESSION["cart"])) {
@@ -76,9 +65,6 @@ class c_cart
                 }
 
             }
-=======
-            }   
-           }
 
 
             // array_slice($_SESSION["cart"], $_GET["id_cart"], 1);

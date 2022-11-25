@@ -12,7 +12,7 @@
                     </tr>
                     
                     <tr>
-                        <td align="center">Ngày Sinh<br /><input type="text" name="ngay_sinh" id="ngay_sinh" class="ngay" style="width:450px; text-align:center"/></td>
+                        <td align="center">Ngày Sinh<br /><input type="date" name="ngay_sinh" id="ngay_sinh" class="ngay" style="width:450px; text-align:center"/></td>
                     </tr>
                     <tr>
                         <td align="center">Email<br /><input type="text" value="" name="email" id="email" style="width:450px; text-align:center"/></td>
