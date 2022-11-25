@@ -1,9 +1,3 @@
-<!-- ============================================================== -->
-<!-- End Left Sidebar - style you can find in sidebar.scss  -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Page wrapper  -->
-<!-- ============================================================== -->
 <div class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -134,32 +128,36 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table" border="1">
-                            <thead class="table-dark">
-                                <tr>
-                                    <td>ID</td>
-                                    
-                                    <td>Tên đăng nhập</td>
-                                    <td>Email</td>
-                                    <td>Mật khẩu</td>
-                                    <td>Vai trò</td>
-                                    <td>#</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($listUsers as $key => $value) { ?>
-                                <tr>
-                                    <td><?php echo $value->id_user ?></td>
-                                    
-                                    <td><?php echo $value->username ?></td>
-                                    <td><?php echo $value->email ?></td>
-                                    <td><?php echo $value->password ?></td>
-                                    <td><?php echo $value ->fullname  ?></td>
-                                    <td><a href="deleteUser.php?id=<?php echo $value->id_user ?>"><i class="fa-solid fa-trash"></i></a> <span style="margin: 0 8px;"></span> <a href="editUser.php?id=<?php echo $value->id_user ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                        <form class="form" action="" method="POST" enctype="multipart/form-data">
+                            <h1>Thêm người dùng</h1>
+                            <div class="mb-3">
+                                <label  for="formFile" class="form-label">Họ tên</label>
+                                <input style="border: 1px solid #333;" class="form-control" type="text" name="username" >
+                            </div>
+                            
+                            <!-- <input type="text" name="ma_loai" placeholder="Mã loại">  -->
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">E-mail</label>
+                                <input style="border: 1px solid #333;" class="form-control" type="text" name="email" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Password</label>
+                                <input style="border: 1px solid #333;" class="form-control" type="text" name="password" >
+                            </div>
+                            
+                            <div class="mb-3">
+                            <select name="chose" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="width: 200px; padding: 8px;">
+                                    <option selected>Vai trò</option>
+                                    <?php
+                                    foreach ($read_user_cate as $key => $value) { ?>
+                                        <option value="<?php echo $value->id_role ?>"><?php echo $value->fullname ?></option>
+                                    <?php }
+                                    ?>
+                                </select>
+                            </div>
+                            
+                            <input value="Thêm" style="width: 200px;height: 45px;" class="btn btn-secondary" type="submit"  name="btn-submit">
+                        </form>
                     </div>
                 </div>
             </div>

@@ -11,12 +11,12 @@ class m_user extends database {
         $this->setQuery($sql);
         return $this->execute(array($id));
     }
-    public function insertuser($fullname, $username, $password, $email,$role)
+    public function insertuser($username, $password, $email,$id_role)
     {
-        $sql = "insert into users(fullname,username,password,email,time,role)
-                values ('$fullname','$username','$password','$email',?,'$role')";
+        $sql = "insert into users(username,password,email,time,id_role)
+                values ('$username','$password','$email',?,'$id_role')";
         $this->setQuery($sql);
-        return $this->execute(array($fullname, $username, $password, $email,$role));
+        return $this->execute(array($username, $password, $email,$id_role));
     }
     public function showUser()
     {
@@ -29,14 +29,14 @@ class m_user extends database {
         $this->setQuery($sql);
         return $this->loadRow(array($id));
     }
-    public function update_user_by_id($fullname, $username,$email, $id_role,$id)
+    public function update_user_by_id($fullname, $username,$email,$id)
     {
         // $sql = "UPDATE `products` SET `name_product`='$ten_sp', `image`='$hinh',` price` ='$gia', `description` ='$mota', `cate_id`='$loai_sp',
         // where id = '$id'";
         $sql = "update users set fullname = ?,username = ?,password = ?,email = ?,date_registration=?, id_role=? where
         id_user = ?";
         $this->setQuery($sql);
-        return $this->execute(array($fullname,$username,$email, $id_role,$id));
+        return $this->execute(array($fullname,$username,$email,$id));
     
     }
     

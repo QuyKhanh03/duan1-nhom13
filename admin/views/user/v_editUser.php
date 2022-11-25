@@ -130,10 +130,7 @@
                     <div class="card-body">
                         <form class="form" action="" method="POST" enctype="multipart/form-data">
                             <h1>Sửa người dùng</h1>
-                            <div class="mb-3">
-                                <label  for="formFile" class="form-label">Họ và tên</label>
-                                <input style="border: 1px solid #333;" value="<?php echo $user_detail->fullname ?>" class="form-control" type="text" name="fullname" placeholder="Họ và tên">
-                            </div>
+                            
                             <div class="mb-3">
                                 <label  for="formFile" class="form-label">Tên đăng nhập</label>
                                 <input style="border: 1px solid #333;" value="<?php echo $user_detail->username ?>" class="form-control" type="text" name="username" placeholder="Tên đăng nhập">
@@ -149,7 +146,7 @@
                                     <option selected>Vai trò</option>
                                     <?php
                                     foreach ($read_cate as $key => $value) { ?>
-                                        <option value="<?php echo $value->id_role ?>"><?php echo $value->role ?></option>
+                                        <option value="<?php echo $value->id_role ?>"><?php echo $value->fullname ?></option>
                                     <?php }
                                     ?>
                                 </select>

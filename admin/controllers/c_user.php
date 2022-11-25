@@ -10,17 +10,17 @@ class c_user
         $view = "views/user/v_user.php";
         include "templates/layout.php";
     }
-    public function insertuser()
+    public function insertUser()
     {
         $user = new m_user();
         $read_user_cate = $user->read_user();
         if (isset($_POST["btn-submit"])) {
-            $fullname = $_POST['fullname'];
+            
             $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $email = $_POST["email"];
+            $password=$_POST["password"];
             $chose = $_POST['chose'];
-            $result = $user->insertuser($fullname, $username, $email, $password,$chose);
+            $result = $user->insertuser( $username,  $password,$email,$chose);
 
             if ($result) {
                 header("location:admin/views/user/v_user.php");
@@ -81,12 +81,12 @@ class c_user
             $id = $_GET['id'];
             $user_detail = $m_user->read_user_by_id($id);
             if (isset($_POST['btn'])) {
-                $fullname = $_POST["fullname"];
-                $username = $_POST['username'];
+                
+                $username = $_POST["username"];
                 $email = $_POST["email"];
                 
                 $role=$_POST["chose"];
-                $result = $m_user->update_user_by_id($fullname,$username,$email,$role);
+                $result = $m_user->update_user_by_id($username,$email,$role);
                 if($result) {
                     
                     echo "<script>alert('thành công')</script>";
