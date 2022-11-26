@@ -142,7 +142,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Password</label>
-                                <input style="border: 1px solid #333;" class="form-control" type="text" name="password" >
+                                <input style="border: 1px solid #333;" class="form-control" type="text" name="password" charset="md5" >
                             </div>
                             
                             <div class="mb-3">

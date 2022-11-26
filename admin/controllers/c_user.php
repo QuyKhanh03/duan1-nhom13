@@ -20,10 +20,10 @@ class c_user
             $email = $_POST["email"];
             $password=$_POST["password"];
             $chose = $_POST['chose'];
-            $result = $user->insertuser( $username,  $password,$email,$chose);
+            $result = $user->insertuser( $username, md5($password),$email,$chose);
 
             if ($result) {
-                header("location:admin/views/user/v_user.php");
+                header("location:user.php");
             } else {
                 echo "<script>alert('thêm không thành công')</script>";
             }
@@ -86,11 +86,11 @@ class c_user
                 $email = $_POST["email"];
                 
                 $role=$_POST["chose"];
-                $result = $m_user->update_user_by_id($username,$email,$role);
+                $result = $m_user->update_user_by_id($username,$email,$role,$id);
                 if($result) {
                     
-                    echo "<script>alert('thành công')</script>";
-                    header("location:admin/views/user/v_user.php");
+                    // echo "<script>alert('thành công')</script>";
+                    header("location:user.php");
                 }else{
                     echo "fail";
                 }
