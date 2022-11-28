@@ -15,7 +15,9 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="header-top-action">
                         <ul>
-                            <?php if(isset($_SESSION["user"])) {
+                            <?php
+                             if(isset($_SESSION["user"])) {
+                                // echo $_SESSION["user"]->id_user;
                                 echo "Hello ". $_SESSION["user"]->username . '<a style="margin-left:10px; color: #000;" name="func" href="logout.php?func=exit"><i class="fa-solid fa-right-from-bracket"></i></a>';
                                 
                             } else {
