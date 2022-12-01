@@ -125,8 +125,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form>
-                    <input type="text" placeholder="Search here...">
-                    <button><i class="flaticon-search"></i></button>
+                    <input type="text" name="search" placeholder="Search here...">
+                    <button name="btn-search"><i class="flaticon-search"></i></button>
                 </form>
             </div>
         </div>

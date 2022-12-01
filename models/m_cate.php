@@ -13,9 +13,9 @@ class m_cate extends database {
         $this->setQuery($sql);
         return $this->loadAllRows(array($id,$id));
     }
-    public function readAllProduct() {
-        $sql = "select * from products,categories where products.cate_id = categories.cate_id";
+    public function readAllProduct($search) {
+        $sql = "select * from products,categories where products.cate_id = categories.cate_id and products.name_product like '%$search%' ";
         $this->setQuery($sql);
-        return $this->loadAllRows();
+        return $this->loadAllRows(array($search));
     }
 }
