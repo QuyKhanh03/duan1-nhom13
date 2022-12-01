@@ -24,4 +24,15 @@ class m_checkout extends database
         // lấy dữ liệu 
         return $this->loadAllRows(array());
     }
+    public function delete_order_by_id ($id) { 
+        $sql1 = "delete from orders where id_order = ?";
+        $this->setQuery($sql1);
+        return $this->execute(array($id));
+    }
+    public function read_order_by_id($id) {
+        $sql = "select orders.date_order, orders.totals as 'total_price', order_details.name_product,order_details.picture, order_details.price, order_details.quality FROM orders inner join order_details on orders.id_order = order_details.id_order where orders.id_order = ?";
+        $this->setQuery($sql);
+        return $this->loadAllRows(array($id));
+    }
+   
 }

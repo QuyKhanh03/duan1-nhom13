@@ -24,7 +24,11 @@ class c_cate
     }
     public function showAllShop() {
         $showall = new m_cate();
-        $read_all_prd_shop = $showall->readAllProduct();
+        $search = "";
+        if(isset($_GET["search"])) {
+            $search = $_GET["search"];
+        }
+        $read_all_prd_shop = $showall->readAllProduct($search);
         $view = "views/cate/v_shop.php";
         include "templates/front-end/layout.php";
     }

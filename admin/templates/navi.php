@@ -12,7 +12,7 @@
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Quản lý đơn hàng </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><span class="hide-menu">Xem tất cả</span></a></li>
+                        <li class="sidebar-item"><a href="order.php" class="sidebar-link"><span class="hide-menu">Xem tất cả</span></a></li>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Quản lý danh muc sản phẩm </span></a>

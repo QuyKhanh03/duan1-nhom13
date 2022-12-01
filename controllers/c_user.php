@@ -36,6 +36,7 @@ class c_user
             header("location:login.php");
         }
     }
+    
     public function saveLoginSession($email, $password)
     {
         $m_user = new m_user();
@@ -87,5 +88,6 @@ class c_user
             }
         }
     }
+    
 }
 }
