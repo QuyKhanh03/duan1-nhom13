@@ -16,4 +16,15 @@ class m_home extends database {
         $this->setQuery($sql);
         return $this->loadRecord();
     }
+    public function thang12() {
+        $sql ="SELECT sum(orders.totals) FROM orders 
+        WHERE orders.date_order >='2022-12-01 00:00:16' AND orders.date_order <='2022-12-30 10:17:16'";
+        $this->setQuery($sql);
+        return $this->loadRecord();
+    }
+    public function tong_don_hang() {
+        $sql = "SELECT count(*) from orders";
+        $this->setQuery($sql);
+        return $this->loadRecord();
+    }
 }

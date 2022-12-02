@@ -1,9 +1,3 @@
-<!-- ============================================================== -->
-<!-- End Left Sidebar - style you can find in sidebar.scss  -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Page wrapper  -->
-<!-- ============================================================== -->
 <div class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -134,38 +128,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="post">
-                            <table class="table" border="1">
-                                <thead class="table-dark">
-                                    <tr>
-
-                                        <td>Tên khách hàng</td>
-                                        <td>Ngày đặt hàng</td>
-                                        <td>đơn giá</td>
-                                        <td>Tình trạng</td>
-                                        <td>#</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($row as $key => $value) {  ?>
-                                        <tr>
-                                            <td><?php echo $value->username ?></td>
-                                            <td><?php echo $value->date_order ?></td>
-                                            <td><?php echo $value->totals ?></td>
-                                            <td> <?php echo ($value->status)==0 ? "chưa thanh toán" :  "đã thanh toán" ?> </td>
-                                            <td>
-                                                <a href="editOrder.php?id_order=<?php echo $value->id_order ?>" title="Sửa trạng thái"><i class="fa-solid fa-pen-to-square"></i></a> ||
-                                                <a href="order_details.php?id_order=<?php echo $value->id_order ?>">Chi tiết</a>
-                                            </td>
-                                        </tr>
-                                        
-                                    <?php
-                                    }
-                                     ?>
-                                </tbody>
-                            </table>
+                        <form class="form" action="" method="POST" enctype="multipart/form-data">
+                            <h1>Sửa trạng thái đặt hàng</h1>
                             
-                            <!-- <input name="update" type="submit" value="Update"> -->
+                            <div class="mb-3">
+                                <select name="chose" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="width: 200px; padding: 8px;">
+                                    <option value="0" selected>Chưa thanh toán</option>
+                                    <option value="1">Đã thanh toán</option>
+                                </select>
+                            </div>
+                            <input  style="width: 200px;height: 45px;" class="btn btn-secondary" type="submit" name="btn">
                         </form>
                     </div>
                 </div>

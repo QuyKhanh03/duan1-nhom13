@@ -133,60 +133,54 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-body">
-                    <div class="row">
-                                <canvas  id="myChart" style="width:100%;max-width:600px;margin: auto;" ></canvas>
-                                <script>
-                                    var xValues = [ "Tổng sản phẩm", " Tổng người dùng","Loại sản phẩm"];
-                                    var yValues = [<?php echo $total_product ?>, <?php echo $total_user ?>,<?php echo $total_categories ?>]
-                                    var barColors = [
-                                        "#b91d47",
-                                        "#00aba9",
-                                        "#2b5797",
-                                        
-            
-                                    ];
-                                    new Chart("myChart", {
-                                        type: "pie",
-                                        data: {
-                                            labels: xValues,
-                                            datasets: [{
-                                                backgroundColor: barColors,
-                                                data: yValues
-                                            }]
-                                        },
-                                        options: {
-                                            title: {
-                                                display: true,
-                                                text: ""
-                                            }
-                                        }
-                                    });
-                                </script>
-                            </div>
+                <div class="card-body" >
+                        <div class="row" >
+                            <div style="margin-left: 100px;" >Tổng doanh thu trong tháng 12 : <b><?php echo $tong_doanh_thu_thang12 ?> $</b></div> 
+                        </div>
+                        <div class="row" >
+                            <div style="margin-left: 100px;" >Tổng số lượng các đơn hàng : <b><?php echo $tong_don_hang  ?></b></div> 
+                        </div>
+                        <div class="row" >
+                            <div style="margin-left: 100px;" >Sản phẩm bán chạy nhất : <b><?php echo $tong_don_hang  ?></b></div> 
+                        </div>
                     </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <canvas id="myChart" style="width:100%;max-width:600px;margin: auto;"></canvas>
+                            <script>
+                                var xValues = ["Tổng sản phẩm", " Tổng người dùng", "Loại sản phẩm"];
+                                var yValues = [<?php echo $total_product ?>, <?php echo $total_user ?>, <?php echo $total_categories ?>]
+                                var barColors = [
+                                    "#b91d47",
+                                    "#00aba9",
+                                    "#2b5797",
+
+
+                                ];
+                                new Chart("myChart", {
+                                    type: "pie",
+                                    data: {
+                                        labels: xValues,
+                                        datasets: [{
+                                            backgroundColor: barColors,
+                                            data: yValues
+                                        }]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: ""
+                                        }
+                                    }
+                                });
+                            </script>
+
+                        </div>
+
+                    </div>
+                    
                 </div>
             </div>
         </div>
-        
-        <!-- ============================================================== -->
-        <!-- Sales chart -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Recent comment and chats -->
-        <!-- ============================================================== -->
-
-        <!-- ============================================================== -->
-        <!-- Recent comment and chats -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
 </div>
