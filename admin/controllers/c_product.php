@@ -87,16 +87,30 @@ class c_product
                 $ten_san_pham = $_POST["ten_san_pham"];
                 $chose = $_POST['chose'];
                 $mota = $_POST["mo_ta"];
-                $hinh_anh_moi = $_FILES["f_hinh_anh"];
+                echo '<pre>';
+                // print_r($hinh_anh_moi);
+                echo '</pre>';
                 // echo "<pre>";
                 // echo print_r( $hinh_anh_moi);
                 // die();
-                $hinh = ($_FILES['f_hinh_anh']['error'] == 0) ? $_FILES['f_hinh_anh']['name'] : "";
+                
                 $don_gia = $_POST["don_gia"];
+                $hinh = "";
+                if ($_FILES["f_hinh_anh"]['size'] >= 0) {
+                    $hinh_anh_moi = $_FILES["f_hinh_anh"];
+                    $hinh = ($hinh_anh_moi['error'] == 0) ? $_FILES['f_hinh_anh']['name'] : "";
+                } else {
+                    $hinh = $_POST["img-old"];
+                    echo '<pre>';
+                    print_r('abc' . $hinh);
+                    die();
+                    echo '</pre>';
+                }
+
                 
                 if (isset($hinh)) {
-                   if($hinh>0) {
                     $result = $m_product->update_product_by_id($ten_san_pham, $hinh, $don_gia, $mota, $chose, $id);
+                    if($hinh>0) {
                     if ($result) {
                         if ($hinh != "") {
                             move_uploaded_file($_FILES['f_hinh_anh']['tmp_name'], "../public/layout/img/product/" . $hinh);
@@ -104,13 +118,13 @@ class c_product
                         echo "<script>alert('thành công')</script>";
                         header("location:product.php");
                     } else {
-                        echo "fail";
+                        echo "<script>alert('fail');</script>";
                     }
                    }
                 } 
             }
         }
         $view = "views/product/v_editPrd.php";
-        include("templates/layout.php");
+        include("templates/content.php");
     }
 }

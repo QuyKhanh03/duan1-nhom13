@@ -18,6 +18,16 @@ class m_user extends database {
         $this->setQuery($sql);
         return $this->execute(array($username, $password, $email,$chose));
     }
+    public function read_user_by_id_pass($email,$password) {
+        $sql = "select * from users where email = ? and password = ?";
+        $this->setQuery($sql);
+        return $this->loadRow(array($email,md5($password)));
+    }
+    public function read_user_by_email($email) {
+        $sql = "select * from users where email = ?";
+        $this-> setQuery($sql);
+        return $this->loadRow(array($email));
+    }
     public function showUser()
     {
         $sql = "select * from users,roles where users.id_role = roles.id_role";

@@ -21,11 +21,7 @@ class c_user
             if ($_SESSION["user"]->id_role == 2) {
                 header("location:index.php");
                 
-            }else if($_SESSION["user"]->id_role ==1) {
-                header("location:admin/home.php");
-                
-            }
-            else {
+            }else {
                 $check == false;
                 header("location:login.php");
             }

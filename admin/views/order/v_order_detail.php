@@ -128,7 +128,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                       
                         <div class="tab-content default-tab" id="tab1">
+
                             <fieldset>
                                 <strong>
                                     <font color="#993300">
@@ -149,8 +151,7 @@
                                     </font>
                                     <strong>
                             </fieldset>
-                            <div class="clear"></div>
-                            <!-- End .clear -->
+                           
                             <table class="table" border="1">
                                 <thead class="table-dark">
                                     <tr>
@@ -162,7 +163,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $tong = 0; foreach ($all as $key => $value) { ?>
+                                    <?php $tong = 0;
+                                    foreach ($all as $key => $value) { ?>
                                         <tr>
                                             <td><?php echo $value->name_product ?></td>
                                             <td><img src="../public/layout/img/product/<?php echo $value->picture ?>" alt=""></td>
@@ -170,21 +172,21 @@
                                             <td><?php echo $value->price ?></td>
                                             <td><?php echo ($value->quality * $value->price) ?></td>
                                         </tr>
-                                    <?php   
-                                    $tong+=($value->quality * $value->price);
-                                } ?>
+                                    <?php
+                                        $tong += ($value->quality * $value->price);
+                                    } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <td colspan="4">
-                                            <p><input class="button print" type="button" value="In đơn hàng" name="btnIn" onclick="window.print()" /></p>
-                                            <div class="clear"></div>
+                                            <p><input class="button print" type="button" value="In hóa đơn " name="btnIn" onclick="window.print()" /></p>
+                                           
                                         </td>
                                         <td colspan="2">
                                             <div class="pagination">
                                                 <h4>Tổng thành tiền: <?php echo $tong ?> $</h4>
                                             </div>
-                                            <div class="clear"></div>
+                                           
                                         </td>
                                     </tr>
                                 </tfoot>
