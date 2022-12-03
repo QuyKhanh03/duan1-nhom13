@@ -141,7 +141,7 @@
                             <div style="margin-left: 100px;" >Tổng số lượng các đơn hàng : <b><?php echo $tong_don_hang  ?></b></div> 
                         </div>
                         <div class="row" >
-                            <div style="margin-left: 100px;" >Sản phẩm bán chạy nhất : <b><?php echo $tong_don_hang  ?></b></div> 
+                            <!-- <div style="margin-left: 100px;" >Sản phẩm bán chạy nhất : <b><?php echo $tong_don_hang  ?></b></div>  -->
                         </div>
                     </div>
                     <div class="card-body">

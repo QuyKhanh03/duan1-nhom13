@@ -91,8 +91,9 @@
                                 } ?>
                             </div>
                         </div>
+                        <!-- <button>Update cart</button> -->
                     </form>
-                    <a href="bills.php">Order Placed</a>
+                    <a href="bills.php" >Order Placed</a>
                     <!-- <a href="checkout.php" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">PROCEED TO CHECKOUT</a> -->
                     <form action="checkout.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
                         <input type="hidden" value="<?php echo $totals  ?>" name="tongtien">
