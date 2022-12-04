@@ -96,21 +96,15 @@ class c_product
                 
                 $don_gia = $_POST["don_gia"];
                 $hinh = "";
-                if ($_FILES["f_hinh_anh"]['size'] >= 0) {
+                if ($_FILES["f_hinh_anh"]['size'] > 0) {
                     $hinh_anh_moi = $_FILES["f_hinh_anh"];
                     $hinh = ($hinh_anh_moi['error'] == 0) ? $_FILES['f_hinh_anh']['name'] : "";
                 } else {
                     $hinh = $_POST["img-old"];
-                    echo '<pre>';
-                    print_r('abc' . $hinh);
-                    die();
-                    echo '</pre>';
                 }
-
-                
                 if (isset($hinh)) {
                     $result = $m_product->update_product_by_id($ten_san_pham, $hinh, $don_gia, $mota, $chose, $id);
-                    if($hinh>0) {
+                    
                     if ($result) {
                         if ($hinh != "") {
                             move_uploaded_file($_FILES['f_hinh_anh']['tmp_name'], "../public/layout/img/product/" . $hinh);
@@ -120,11 +114,11 @@ class c_product
                     } else {
                         echo "<script>alert('fail');</script>";
                     }
-                   }
+                   
                 } 
             }
         }
         $view = "views/product/v_editPrd.php";
-        include("templates/content.php");
+        include("templates/layout.php");
     }
 }

@@ -140,7 +140,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-lable fs-3">Hoặc giữ lại ảnh cũ</label>
-                                <input id="img-old" name="img-old" type="text" class="form-control fs-4" value="<?php echo $product_detail->image ?>"> <br>
+                                <input id="img-old" name="img-old" type="text" hidden class="form-control fs-4" value="<?php echo $product_detail->image ?>"> <br>
                                 <img src="../public/layout/img/product/<?php echo $product_detail->image ?>" alt="">
                             </div>
                             <!-- <input type="text" name="ma_loai" placeholder="Mã loại">  -->
