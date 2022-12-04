@@ -1,6 +1,6 @@
 <?php
 include "models/m_user.php";
-
+session_start();
 class c_user
 {
     public function showAllUser()
@@ -100,5 +100,31 @@ class c_user
         $view = "views/user/v_editUser.php";
         include("templates/layout.php");
     }
-
+    public function logout()
+    {
+        unset($_SESSION["admin"]);
+        header("location:../index.php");
+    }
+    public function checkLoginAdmin()
+    {
+        if (isset($_POST['login'])) {
+            $username = $_POST['email'];
+            $password = $_POST['password'];
+            $this->saveLoginSession($username, $password);
+            if (isset($_SESSION['admin'])) {
+                header("location:home.php");
+            } else {
+                $_SESSION['error_login'] = "Sai thông tin đăng nhập";
+                header("location:login.php");
+            }
+        }
+    }
+    public function saveLoginSession($username, $password)
+    {
+        $m_user = new m_user();
+        $user = $m_user->read_user_by_id_pass($username, $password);
+        if (!empty($user)) {
+            $_SESSION['admin'] = $user;
+        }
+    }
 }

@@ -29,8 +29,10 @@ class m_product extends database
     {
         // $sql = "UPDATE `products` SET `name_product`='$ten_sp', `image`='$hinh',` price` ='$gia', `description` ='$mota', `cate_id`='$loai_sp',
         // where id = '$id'";
-        $sql = "update products set name_product = ?,image = ?,price = ?,description = ?,cate_id=? where
-        id = ?";
+        $sql = "update products 
+                set name_product = '$ten_sp',image = '$hinh',price = '$gia',description = '$mota',cate_id='$loai_sp' 
+                where
+                id = '$id'";
         $this->setQuery($sql);
         return $this->execute(array($ten_sp,$hinh,$gia,$mota,$loai_sp, $id));
     }
