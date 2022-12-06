@@ -62,18 +62,19 @@
                                                     <td class="product-price">$ <?php echo $key[3]  ?>.00</td>
                                                     <td class="product-quantity">
 
-                                                        <input type="hidden" name="price" value="<?php echo $key[3] ?>">
+                                                        <input id="price" type="hidden" name="price" value="<?php echo $key[3] ?>">
                                                         <?php
                                                         //  $qty +=$key[4]
                                                         ?>
-                                                        <input name="quantity" type="text" class="in-num" value="<?php echo $key[4] ?>">
+                                                        <input id="quantity" onchange="myFunction()" name="quantity" type="number" min="1" class="in-num" value="<?php echo $key[4] ?>">
                                                     </td>
+        
                                                     <?php
                                                     $subtotal = 1;
                                                     $subtotal = $key[4] * $key[3];
                                                     $totals += $subtotal;
                                                     ?>
-                                                    <td class="product-subtotal"><span>$ <?php echo $subtotal ?></span></td>
+                                                    <td class="product-subtotal"><span id="subtotal">$ <?php echo $subtotal ?></span></td>
                                                     <td class="product-delete"><a href="delete_cart.php?id_cart=<?php echo $key[0] ?>"><i class="flaticon-trash"></i></a></td>
                                                 </tr>
                                         <?php
@@ -109,3 +110,11 @@
     <!-- cart-area-end -->
 
 </main>
+<script>
+    // function myFunction() { 
+    //     var quantity = document.getElementById("quantity");
+    //     var price = document.getElementById("price");
+    //     var subtotal = document.getElementById("subtotal");
+    //     subtotal.innerText = quantity.value*price.value
+    // }
+</script>
