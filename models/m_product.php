@@ -15,4 +15,21 @@ class m_product extends database {
         $this->setQuery($sql);
         return $this->loadAllRows();
     }
+    public function insert_cmt($des,$id_user,$id_prodcut) { 
+        $sql = "INSERT INTO comments (des,id_user,id_product) values(?,?,?)";
+        $this->setQuery($sql);
+        return $this->execute(array($des,$id_user,$id_prodcut));
+    }
+    public function read_comment($id) {
+        $sql = "select * from comments where id_product = '$id'";
+        $this->setQuery($sql);
+        return $this->loadAllRows(array($id));
+    }
+    // đếm số lượng bình luận
+    public function read_count_comment($id) {
+        // echo $id;
+        $sql = "select count(*) from comments where id_product = '$id'";
+        $this->setQuery($sql);
+        return $this->loadRecord(array($id));
+    }
 }
