@@ -18,9 +18,8 @@ class c_user
         if (isset($_SESSION["user"])) {
             // echo print_r($_SESSION["user"]);
             // die();
-            if ($_SESSION["user"]->id_role == 2) {
+            if ($_SESSION["user"]) {
                 header("location:index.php");
-                
             }else {
                 $check == false;
                 header("location:login.php");

@@ -55,9 +55,9 @@
                                         
                                             foreach ($_SESSION["cart"] as $key) { ?>
                                                 <tr>
-                                                    <td class="product-thumbnail"><a href="prd_detail.php"><img src="public/layout/img/product/<?php echo $key[2] ?>" alt=""></a></td>
+                                                    <td class="product-thumbnail"><a href="#"><img src="public/layout/img/product/<?php echo $key[2] ?>" alt=""></a></td>
                                                     <td class="product-name">
-                                                        <h4><a href="shop-details.html"><?php echo $key[1]  ?></a></h4>
+                                                        <h4><a href="#"><?php echo $key[1]  ?></a></h4>
                                                     </td>
                                                     <td class="product-price">$ <?php echo $key[3]  ?>.00</td>
                                                     <td class="product-quantity">
@@ -66,7 +66,7 @@
                                                         <?php
                                                         //  $qty +=$key[4]
                                                         ?>
-                                                        <input id="quantity" onchange="myFunction()" name="quantity" type="number" min="1" class="in-num" value="<?php echo $key[4] ?>">
+                                                        <input id="quantity" readonly="" name="quantity" type="text" min="1" class="in-num" value="<?php echo $key[4] ?>">
                                                     </td>
         
                                                     <?php
