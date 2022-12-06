@@ -54,56 +54,26 @@
                             <p class="style-name">Style Name : <?php echo $value->name ?> </p>
 
                             <div class="price">Price : $ <?php echo $value->price ?>.00</div>
-                            <div class="product-details-info">
-                                <span>Size <a href="#">Guide</a></span>
-                                <div class="sidebar-product-size mb-30">
-                                    <h4 class="widget-title">Product Size</h4>
-                                    <div class="shop-size-list">
-                                        <ul>
-                                            <li><a href="#">S</a></li>
-                                            <li><a href="#">M</a></li>
-                                            <li><a href="#">L</a></li>
-                                            <li><a href="#">XL</a></li>
-                                            <li><a href="#">XXL</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="sidebar-product-color">
-                                    <h4 class="widget-title">Color</h4>
-                                    <div class="shop-color-list">
-                                        <ul>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="perched-info">
                                 <div class="cart-plus-minus">
-                                    <form action="#" class="num-block">
-                                        <input type="text" class="in-num" value="1" readonly="">
-                                        <div class="qtybutton-box">
-                                            <span class="plus"><img src="public/layout/img/icon/plus.png" alt=""></span>
-                                            <span class="minus dis"><img src="public/layout/img/icon/minus.png" alt=""></span>
+                                    <form action="cart.php" class="num-block" method="POST">
+
+                                        <div class="num-block">
+                                            <input type="text" class="in-num" value="1"name="so-luong" >
+                                            <div class="qtybutton-box" style="height: 50px;">
+                                                <span class="plus"><img src="public/layout/img/icon/plus.png" alt=""></span>
+                                                <span class="minus dis"><img src="public/layout/img/icon/minus.png" alt=""></span>
+                                            </div>
                                         </div>
+                                        <input type="hidden" name="product_id" value="<?php echo $value->id ?>">
+                                       
+                                        <input type="hidden" name="ten-sp" value="<?php echo $value->name_product ?>">
+                                        <input type="hidden" name="gia" value="<?php echo $value->price ?>">
+                                        <input type="hidden" name="hinh" value="<?php echo $value->image ?>">
+                                        <input style="width: 180px; background-color: #202026;color: #e9e9e9;" class="btn" name="add-cart" type="submit" value="ADD TO CART" style="text-transform: uppercase;color: #e9e9e9;padding: 8px 20px;background: #202026; margin-right: 10px;">
                                     </form>
-                                </div>
-                                <form action="cart.php" method="POST">
-                                    <input type="hidden" name="product_id" value="<?php echo $value->id ?>">
-                                    <input type="hidden" value="1" name="so-luong">
-                                    <input type="hidden" name="ten-sp" value="<?php echo $value->name_product ?>">
-                                    <input type="hidden" name="gia" value="<?php echo $value->price ?>">
-                                    <input type="hidden" name="hinh" value="<?php echo $value->image ?>">
-                                    <input class="btn" name="add-cart" type="submit" value="ADD TO CART" style="text-transform: uppercase;color: #e9e9e9;padding: 8px 20px;background: #202026; margin-right: 10px;">
-                                </form>
-                                <!-- <a href="cart.php" class="btn">add to cart</a> -->
-                                <div class="wishlist-compare">
-                                    <ul>
-                                        <li><a href="#"><i class="far fa-heart"></i> Add to Wishlist</a></li>
-                                        <li><a href="#"><i class="fas fa-retweet"></i> Add to Compare List</a></li>
-                                    </ul>
+                                    <!-- <a href="cart.php" class="btn">add to cart</a> -->
                                 </div>
                             </div>
                             <div class="product-details-share">
@@ -143,53 +113,8 @@
                                             <li><span>SIZE :</span> XS, S, M, L</li>
                                         </ul>
                                     </div>
-                                    <div class="additional-table">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered">
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">Size Name</th>
-                                                        <td>28</td>
-                                                        <td>49</td>
-                                                        <td>36</td>
-                                                        <td>55</td>
-                                                        <td>44</td>
-                                                        <td>34</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Waist Stretch</th>
-                                                        <td>19</td>
-                                                        <td>38</td>
-                                                        <td>31</td>
-                                                        <td>55</td>
-                                                        <td>44</td>
-                                                        <td>34</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Hip (7½” below from waist)</th>
-                                                        <td>11</td>
-                                                        <td>18</td>
-                                                        <td>21</td>
-                                                        <td>55</td>
-                                                        <td>44</td>
-                                                        <td>34</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">length (Out seam)</th>
-                                                        <td>28</td>
-                                                        <td>31</td>
-                                                        <td>19</td>
-                                                        <td>55</td>
-                                                        <td>44</td>
-                                                        <td>34</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't
-                                        distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very
-                                        useful when the focus is meant to be on design, not content.</p>
+
+
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                     <div class="product-desc-title mb-30">
@@ -208,13 +133,13 @@
                                         </div>
                                     </div>
                                     <?php if (isset($list_cmt)) : ?>
-                                            <?php foreach ($list_cmt as $key => $each) { ?>
-                                                <div class="alert alert-primary" role="alert">
+                                        <?php foreach ($list_cmt as $key => $each) { ?>
+                                            <div class="alert alert-primary" role="alert">
                                                 <?php echo $each->des; ?>
-                                                </div>
-                                                <?php echo $each->time ?>
-                                            <?php } ?>
-                                        <?php endif ?>
+                                            </div>
+                                            <?php echo $each->time ?>
+                                        <?php } ?>
+                                    <?php endif ?>
                                     <form action="add-cmt.php" class="comment-form review-form" method="POST">
                                         <span>Your review *</span>
                                         <textarea name="des" id="comment-message" placeholder="Your Comment"></textarea>

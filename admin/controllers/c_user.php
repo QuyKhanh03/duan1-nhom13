@@ -102,7 +102,7 @@ class c_user
     }
     public function logout()
     {
-        unset($_SESSION["admin"]);
+        unset($_SESSION["user"]);
         header("location:../index.php");
     }
     public function checkLoginAdmin()
@@ -111,7 +111,7 @@ class c_user
             $username = $_POST['email'];
             $password = $_POST['password'];
             $this->saveLoginSession($username, $password);
-            if (isset($_SESSION['admin'])) {
+            if (isset($_SESSION['user'])&& $_SESSION["user"]->id_role==1) {
                 header("location:home.php");
             } else {
                 $_SESSION['error_login'] = "Sai thông tin đăng nhập";
@@ -124,7 +124,7 @@ class c_user
         $m_user = new m_user();
         $user = $m_user->read_user_by_id_pass($username, $password);
         if (!empty($user)) {
-            $_SESSION['admin'] = $user;
+            $_SESSION['user'] = $user;
         }
     }
 }
