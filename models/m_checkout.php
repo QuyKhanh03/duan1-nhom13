@@ -34,5 +34,10 @@ class m_checkout extends database
         $this->setQuery($sql);
         return $this->loadAllRows(array($id));
     }
+    public function update_quantity($id,$quantily) {
+        $sql = "UPDATE products SET products.quantity = products.quantity - '$quantily' where id = '$id'";
+        $this->setQuery($sql);
+        return $this->execute();
+    }
    
 }

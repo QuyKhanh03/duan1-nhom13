@@ -18,7 +18,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Quản lý binh luan</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <!-- <li class="sidebar-item"><a href="addCate.php" class="sidebar-link"><span class="hide-menu">Thêm danh mục</span></a></li> -->
-                        <li class="sidebar-item"><a href="categories.php" class="sidebar-link"><span class="hide-menu">Xem tất cả</span></a></li>
+                        <li class="sidebar-item"><a href="comments.php" class="sidebar-link"><span class="hide-menu">Xem tất cả</span></a></li>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><span class="hide-menu">Quản lý danh muc sản phẩm </span></a>
