@@ -217,64 +217,139 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane show active" id="men" role="tabpanel" aria-labelledby="men-tab">
                     <div class="row features-product-active">
-                        <?php foreach ($products as $key => $value) { ?>
-                            <div class="col">
-                                <div class="features-product-item mb-30">
-                                    <div class="features-product-thumb">
-                                        <!-- <div class="discount-tag">-20%</div> -->
-                                        <a href="prd_detail.php?id=<?php echo $value->id ?>">
-                                            <img style="width: 150px; height: 160px;" src="public/layout/img/product/<?php echo $value->image ?>" alt="">
-                                        </a>
-                                        <div class="product-overlay-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                                <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
-                                            </ul>
+                        <?php foreach ($products as $key => $value) {
+                            if ($value->quantity > 0) { ?>
+                                <div class="col">
+                                    <div class="features-product-item mb-30">
+                                        <div class="features-product-thumb">
+                                            <!-- <div class="discount-tag">-20%</div> -->
+                                            <a href="prd_detail.php?id=<?php echo $value->id ?>">
+                                                <img style="width: 150px; height: 160px;" src="public/layout/img/product/<?php echo $value->image ?>" alt="">
+                                            </a>
+                                            <div class="product-overlay-action">
+                                                <ul>
+                                                    <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
+                                                    <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="features-product-content">
-                                        <div class="rating">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
+                                        <div class="features-product-content">
+                                            <div class="rating">
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
+                                            <p class="price">$<?php echo $value->price ?></p>
+                                            <div class="features-product-bottom">
+                                                <ul>
+                                                    <li class="color-option">
+                                                        <span class="gray"></span>
+                                                        <span class="cyan"></span>
+                                                        <span class="orange"></span>
+                                                    </li>
+                                                    <!-- <li class="limited-time"><a href="#">Limited-Time Offer!</a></li> -->
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
-                                        <p class="price">$<?php echo $value->price ?></p>
-                                        <div class="features-product-bottom">
-                                            <ul>
-                                                <li class="color-option">
-                                                    <span class="gray"></span>
-                                                    <span class="cyan"></span>
-                                                    <span class="orange"></span>
-                                                </li>
-                                                <!-- <li class="limited-time"><a href="#">Limited-Time Offer!</a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <form action="action-cart.php" method="POST">
-                                        <input type="hidden" name="product_id" value="<?php echo $value->id ?>">
-                                        <input type="hidden" value="1" name="so-luong">
-                                        <input type="hidden" name="ten-sp" value="<?php echo $value->name_product ?>">
-                                        <input type="hidden" name="gia" value="<?php echo $value->price ?>">
-                                        <input type="hidden" name="hinh" value="<?php echo $value->image ?>">
-                                        <input   class="features-product-cart" name="add-cart" type="submit" value="ADD TO CART" style="text-transform: uppercase;color: #e9e9e9;padding: 8px 0;background: #202026;">
-                                    </form>
-                                    <!-- <div class="features-product-cart"><a href="cart.php?id=<?php
-                                                                                                    // echo $value->id
-                                                                                                    ?>
+                                        <form action="action-cart.php" method="POST">
+                                            <input type="hidden" name="product_id" value="<?php echo $value->id ?>">
+                                            <input type="hidden" value="1" name="so-luong">
+                                            <input type="hidden" name="ten-sp" value="<?php echo $value->name_product ?>">
+                                            <input type="hidden" name="gia" value="<?php echo $value->price ?>">
+                                            <input type="hidden" name="hinh" value="<?php echo $value->image ?>">
+
+                                            <input class="features-product-cart" name="add-cart" type="submit" value="ADD TO CART" style="text-transform: uppercase;color: #e9e9e9;padding: 8px 0;background: #202026;">
+                                        </form>
+                                        <!-- <div class="features-product-cart"><a href="cart.php?id=<?php
+                                                                                                        // echo $value->id
+                                                                                                        ?>
                              ">add to cart</a></div> -->
+                                    </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                        <?php
+                            }else {
+                                
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- features-product-area-end -->
+    <section class="trending-product-area pt-95 pb-100">
+        <div class="container custom-container">
+            <div class="row justify-content-center">
+                <div class="col-xl-4 col-lg-6">
+                    <div class="section-title text-center mb-45">
+                        <h3 class="title">Trending Products</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters trending-product-grid">
+                <div class="col-2" style="">
+                    <div class="trending-products-list">
+                        <h5>Clothing</h5>
+                        <ul class="nav nav-tabs" id="trendingTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="accessories-tab" data-toggle="tab" href="#accessories" role="tab" aria-controls="accessories" aria-selected="true">Accessories</a>
+                            </li>
 
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="tab-content tp-tab-content" id="trendingTabContent">
+                        <div class="tab-pane show active" id="accessories" role="tabpanel" aria-labelledby="accessories-tab">
+
+                            <div class="trending-products-banner banner-animation">
+                                <a href="shop-sidebar.html"><img src="public/layout/img/images/trending_banner.jpg" alt=""></a>
+                            </div>
+                            <div class="row trending-product-active">
+                                <?php foreach ($trend as $value) { ?>
+                                    <div class="col">
+                                        <div class="features-product-item">
+                                            <div class="features-product-thumb">
+
+                                                <a href="prd_detail.php?id=<?php echo $value->id ?>">
+                                                    <img style="width: 200px; height: 210px;" src="public/layout/img/product/<?php echo $value->image ?>" alt="">
+                                                </a>
+                                                <div class="product-overlay-action">
+                                                    <ul>
+                                                        <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
+                                                        <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="features-product-content" style="height: 150px;">
+                                                <div class="rating">
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
+                                                <p class="price">$<?php echo $value->price ?></p>
+
+                                            </div>
+                                            <div class="features-product-cart"><a href="cart.html">add to cart</a></div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- discount-area -->
     <section class="discount-area discount-bg jarallax parallax-img" data-background="public/layout/img/bg/discount_bg.jpg">
         <div class="container">

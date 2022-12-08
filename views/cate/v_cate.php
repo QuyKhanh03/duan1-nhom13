@@ -63,7 +63,7 @@
                                         </div>
                                     </div>
                                     <div class="content">
-                                        <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product?></a></h5>
+                                        <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
                                         <span class="price"><?php echo $value->price ?> $</span>
                                     </div>
                                 </div>
@@ -86,126 +86,28 @@
                 <div class="col-xl-3 col-lg-4">
                     <aside class="shop-sidebar">
                         <div class="widget side-search-bar">
-                            <form action="#">
+                            <!-- <form action="#">
                                 <input type="text">
                                 <button><i class="flaticon-search"></i></button>
-                            </form>
+                            </form> -->
                         </div>
                         <div class="widget">
                             <h4 class="widget-title">Product Categories</h4>
                             <div class="shop-cat-list">
+                                <?php
+                                require_once "controllers/c_cate.php";
+                                $category = c_cate::loadMenu();
+                                ?>
                                 <ul>
-                                    <li><a href="#">Accessories</a><span>(6)</span></li>
-                                    <li><a href="#">Computer</a><span>(4)</span></li>
-                                    <li><a href="#">Covid-19</a><span>(2)</span></li>
-                                    <li><a href="#">Electronics</a><span>(6)</span></li>
-                                    <li><a href="#">Frame Sunglasses</a><span>(12)</span></li>
-                                    <li><a href="#">Furniture</a><span>(7)</span></li>
-                                    <li><a href="#">Genuine Leather</a><span>(9)</span></li>
+                                    <?php foreach ($category as $key => $value) { ?>
+                                        <li><a href="cate.php?id=<?php echo $value->cate_id ?>"><?php echo $value->name ?></a></li>
+                                    <?php } ?>
+                                    <!-- <li><a href="#">Accessories</a></li>
+                                    <li><a href="#">Computer</a><span>(4)</span></li> -->
                                 </ul>
                             </div>
                         </div>
-                        <div class="widget">
-                            <h4 class="widget-title">Price Filter</h4>
-                            <div class="price_filter">
-                                <div id="slider-range"></div>
-                                <div class="price_slider_amount">
-                                    <span>Price :</span>
-                                    <input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <h4 class="widget-title">Product Brand</h4>
-                            <div class="sidebar-brand-list">
-                                <ul>
-                                    <li><a href="#">New Arrivals <i class="fas fa-angle-double-right"></i></a></li>
-                                    <li><a href="#">Clothing & Accessories <i class="fas fa-angle-double-right"></i></a></li>
-                                    <li><a href="#">Winter Jacket <i class="fas fa-angle-double-right"></i></a></li>
-                                    <li><a href="#">Baby Clothing <i class="fas fa-angle-double-right"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget has-border">
-                            <div class="sidebar-product-size mb-30">
-                                <h4 class="widget-title">Product Size</h4>
-                                <div class="shop-size-list">
-                                    <ul>
-                                        <li><a href="#">S</a></li>
-                                        <li><a href="#">M</a></li>
-                                        <li><a href="#">L</a></li>
-                                        <li><a href="#">XL</a></li>
-                                        <li><a href="#">XXL</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sidebar-product-color">
-                                <h4 class="widget-title">Color</h4>
-                                <div class="shop-color-list">
-                                    <ul>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <h4 class="widget-title">Top Items</h4>
-                            <div class="sidebar-product-list">
-                                <ul>
-                                    <li>
-                                        <div class="sidebar-product-thumb">
-                                            <a href="#"><img src="public/layout/img/product/sidebar_product01.jpg" alt=""></a>
-                                        </div>
-                                        <div class="sidebar-product-content">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <h5><a href="#">Woman T-shirt</a></h5>
-                                            <span>$ 39.00</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar-product-thumb">
-                                            <a href="#"><img src="img/product/sidebar_product02.jpg" alt=""></a>
-                                        </div>
-                                        <div class="sidebar-product-content">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <h5><a href="#">Slim Fit Cotton</a></h5>
-                                            <span>$ 39.00</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar-product-thumb">
-                                            <a href="#"><img src="img/product/sidebar_product03.jpg" alt=""></a>
-                                        </div>
-                                        <div class="sidebar-product-content">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <h5><a href="#">Fashion T-shirt</a></h5>
-                                            <span>$ 39.00</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+
                     </aside>
                 </div>
             </div>

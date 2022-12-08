@@ -1,14 +1,5 @@
 <div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
+
     <div class="container-fluid">
         <!-- ============================================================== -->
         <!-- Sales Cards  -->
@@ -37,8 +28,12 @@
                                 <input style="border: 1px solid #333;" class="form-control" type="text" name="don_gia" placeholder="Đơn giá">
                             </div>
                             <div class="mb-3">
+                                <label for="formFile" class="form-label">Nhập số lượng</label>
+                                <input style="border: 1px solid #333;" class="form-control" type="text" name="so_luong" placeholder="Số lượng">
+                            </div>
+                            <div class="mb-3">
                                 <select name="chose" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="width: 200px; padding: 8px;">
-                                    <option selected>Chọn loại sản phẩm</option>
+                                    
                                     <?php
                                     foreach ($read_prd_cate as $key => $value) { ?>
                                         <option value="<?php echo $value->cate_id ?>"><?php echo $value->name ?></option>

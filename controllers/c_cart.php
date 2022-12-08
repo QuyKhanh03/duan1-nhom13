@@ -94,6 +94,7 @@ class c_cart
                     foreach ($_SESSION["cart"] as $key) {
                         $total_item = ($key[3] * $key[4]);
                         $m_checkout->orderDetail($key[1], $key[4], $id_order, $total_item, $key[2]);
+                        $m_checkout->update_quantity($key[0],$key[4]);
                     }
                     // echo "<pre>";
                     // echo print_r($m_checkout->orderDetail($key[1],$key[4],$id_order,$total_item,$key[2]));
@@ -115,6 +116,7 @@ class c_cart
             $id_user = $_SESSION["user"]->id_user;
             $user = $m_user->getUserById($id_user);
             $order = $m_user->getOrderByIdUser($id_user);
+
         }
         $view = "views/bill/v_bill.php";
         include "templates/front-end/layout.php";

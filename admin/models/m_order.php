@@ -2,7 +2,7 @@
 include "databaseAd.php";
 class m_order extends database {
     public function read_order() {
-        $sql = "SELECT users.username,orders.date_order,orders.id_order,orders.totals,orders.status  FROM users, orders WHERE users.id_user=orders.id_user";
+        $sql = "SELECT users.username,orders.date_order,orders.id_order,orders.totals,orders.status  FROM users, orders WHERE users.id_user=orders.id_user ORDER BY orders.id_order DESC ";
         $this->setQuery($sql);
         return $this->loadAllRows();
     }

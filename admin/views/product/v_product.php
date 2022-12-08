@@ -30,10 +30,11 @@
                         <table class="table" border="1">
                             <thead class="table-dark">
                                 <tr>
-                                    <td width="140px">Tên sản phẩm</td>
+                                    <td width="130px">Tên sản phẩm</td>
                                     <td>Hình</td>
-                                    <td width="90px">Giá tiền</td>
+                                    <td width="80px">Giá tiền</td>
                                     <td>mô tả</td>
+                                    <td>Số lượng sản phẩm trong kho</td>
                                     <td width="130px">loại sản phẩm</td>
                                     <td width="90px">#</td>
                                 </tr>
@@ -42,9 +43,10 @@
                                 <?php foreach($listProducts as $key => $value) { ?>
                                 <tr>
                                     <td><?php echo $value->name_product ?></td>
-                                    <td><img width="150px" src="../public/layout/img/product/<?php echo $value->image ?>" alt=""></td>
+                                    <td><img width="150px" height="160px" src="../public/layout/img/product/<?php echo $value->image ?>" alt=""></td>
                                     <td><?php echo $value->price ?></td>
                                     <td><?php echo $value->description ?></td>
+                                    <td><?php echo $value->quantity ?></td>
                                     <td><?php echo $value -> name  ?></td>
                                     <td><a onclick="return delete_by_name('<?php echo $value->name_product ?>')" href="deletePrd.php?id=<?php echo $value->id ?>"><i class="fa-solid fa-trash"></i></a> <span style="margin: 0 8px;"></span> <a href="editProduct.php?id=<?php echo $value->id ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
                                 </tr>

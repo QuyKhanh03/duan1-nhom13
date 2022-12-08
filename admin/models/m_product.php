@@ -17,24 +17,24 @@ class m_product extends database
         return $this->execute(array($id));
     }
     // thêm sản phẩm 
-    public function insertPrd($ten_sp, $hinh, $gia, $mota, $loai_sp)
+    public function insertPrd($ten_sp, $hinh, $gia,$so_luong, $mota, $loai_sp)
     {
-        $sql = "insert into products(name_product,image,price,description,cate_id)
-                values (?,?,?,?,?)";
+        $sql = "insert into products(name_product,image,price,quantity,description,cate_id)
+                values (?,?,?,?,?,?)";
         $this->setQuery($sql);
-        return $this->execute(array($ten_sp, $hinh, $gia, $mota, $loai_sp));
+        return $this->execute(array($ten_sp, $hinh, $gia,$so_luong, $mota, $loai_sp));
     }
     // sửa sản phẩm theo id
-    public function update_product_by_id($ten_sp, $hinh, $gia, $mota, $loai_sp,$id)
+    public function update_product_by_id($ten_sp, $hinh, $gia,$so_luong, $mota, $loai_sp,$id)
     {
         // $sql = "UPDATE `products` SET `name_product`='$ten_sp', `image`='$hinh',` price` ='$gia', `description` ='$mota', `cate_id`='$loai_sp',
         // where id = '$id'";
         $sql = "update products 
-                set name_product = '$ten_sp',image = '$hinh',price = '$gia',description = '$mota',cate_id='$loai_sp' 
+                set name_product = '$ten_sp',image = '$hinh',price = '$gia',quantity = '$so_luong',description = '$mota',cate_id='$loai_sp' 
                 where
                 id = '$id'";
         $this->setQuery($sql);
-        return $this->execute(array($ten_sp,$hinh,$gia,$mota,$loai_sp, $id));
+        return $this->execute(array($ten_sp,$hinh,$gia,$so_luong,$mota,$loai_sp, $id));
     }
     // danh muc
     public function read_cate()
