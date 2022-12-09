@@ -34,12 +34,12 @@
                                             <label>Trị giá: <?php echo $order_details->totals ?> $</label>
                                         </p>
                                         <p>
-                                            <label>Họ tên khách hàng: <?php echo $order_details->username ?></label>
+                                            <label>Họ tên khách hàng: <?php echo $info->username ?></label>
                                         </p>
                                         <p>
-                                            <label>Địa chỉ: <?php echo $order_details->address ?></label>
-                                            <label><span style="margin-left:20px">Điện thoại: <?php echo $order_details->phone ?></span></label>
-                                            <label><span style="margin-left:20px">Email: <?php echo $order_details->email ?></span></label>
+                                            <label>Địa chỉ: <?php echo $info->address ?></label>
+                                            <label><span style="margin-left:20px">Điện thoại: <?php echo $info->phone ?></span></label>
+                                            <label><span style="margin-left:20px">Email: <?php echo $info->email ?></span></label>
                                         </p>
                                     </font>
                                     <strong>

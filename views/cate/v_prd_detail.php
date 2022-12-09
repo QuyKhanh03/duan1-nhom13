@@ -60,7 +60,7 @@
                                     <form action="cart.php" class="num-block" method="POST">
 
                                         <div class="num-block">
-                                            <input type="text" class="in-num" value="1"name="so-luong" >
+                                            <input type="text" class="in-num"  value="1"name="so-luong" >
                                             <div class="qtybutton-box" style="height: 50px;">
                                                 <span class="plus"><img src="public/layout/img/icon/plus.png" alt=""></span>
                                                 <span class="minus dis"><img src="public/layout/img/icon/minus.png" alt=""></span>

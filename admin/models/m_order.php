@@ -17,7 +17,9 @@ class m_order extends database {
         return $this->execute(array($id));
     }
     public function read_order_detail($id) {
-        $sql = "select * from order_details,users JOIN orders ON orders.id_order WHERE order_details.id_order = ? AND orders.id_order= ?";
+        $sql = "select * from order_details
+        JOIN orders ON orders.id_order
+         WHERE order_details.id_order = ? AND orders.id_order= ?";
         $this->setQuery($sql);
         return $this->loadRow(array($id,$id));
     }
@@ -25,6 +27,11 @@ class m_order extends database {
         $sql = "select * from order_details where id_order = ?";
         $this->setQuery($sql);
         return $this->loadAllRows(array($id));
+    }
+    public function read_info_by_id_order($id) {
+        $sql = "SELECT * FROM `orders` JOIN users on users.id_user=orders.id_user WHERE orders.id_order = ?";
+        $this->setQuery($sql);
+        return $this->loadRow(array($id));
     }
     
 }
