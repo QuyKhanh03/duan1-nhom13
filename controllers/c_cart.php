@@ -87,7 +87,10 @@ class c_cart
             if (isset($_POST["create-order"]) && !empty($_SESSION["cart"])) {
                 $id = $_SESSION["user"]->id_user;
                 $totals = $_POST["tongtien"];
+                $address = $_POST["address"];
+                $phone = $_POST["phone"];
                 $m_checkout->insertOrder($id, $totals);
+                $m_checkout->update_user($phone,$address,$id);
                 $order = $m_checkout->getOrder();
                 $id_order = $order[0]->id_order;
                 if (isset($_SESSION["cart"])) {

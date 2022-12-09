@@ -32,6 +32,7 @@ class c_order{
             $m_order = new m_order();
             $order_details = $m_order->read_order_detail($id_order);
             $all = $m_order->read_all_order_detail($id_order);
+            $info = $m_order->read_info_by_id_order($id_order);
         }
         $view = "views/order/v_order_detail.php";
         include "templates/layout.php";

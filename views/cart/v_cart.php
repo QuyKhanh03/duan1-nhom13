@@ -95,9 +95,13 @@
                         </div>
                         <!-- <button>Update cart</button> -->
                     </form>
-                    <a href="bills.php" >Order Placed</a>
+                    <a style="margin: 30px 0 ; background-color: #36363b; color: #fff" class="btn" href="bills.php" >Order Placed</a>
                     <!-- <a href="checkout.php" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">PROCEED TO CHECKOUT</a> -->
                     <form action="checkout.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
+                        <label for="phone">Phone</label>
+                        <input type="text" name="phone" style="display: block;padding: 5px;width: 300px;" placeholder="Phone ...">
+                        <label style="margin-top: 10px;" for="address">Delivery address</label>
+                        <textarea name="address" id="address" cols="100%" rows="5" style="display: block; padding: 10px; margin-top: 10px;" placeholder="Delivery address..."></textarea>
                         <input type="hidden" value="<?php echo $totals  ?>" name="tongtien">
                         <button name="create-order" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">ORDER NOW</button>
                     </form>

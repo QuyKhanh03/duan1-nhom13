@@ -33,6 +33,18 @@
                             <div style="margin-left: 100px;" >Tổng số lượng các đơn hàng : <b><?php echo $tong_don_hang  ?></b></div> 
                         </div>
                         <div class="row" >
+                            <div style="margin-left: 100px;" >Tổng số lượng các sản phẩm : <b><?php echo $total_product  ?></b></div> 
+                        </div>
+                        <div class="row" >
+                            <div style="margin-left: 100px;" >Tổng số lượng các danh mục : <b><?php echo $total_categories  ?></b></div> 
+                        </div>
+                        <div class="row" >
+                            <div style="margin-left: 100px;" >Tổng số lượng các bình luận : <b><?php echo $tong_binh_luan ?></b></div> 
+                        </div>
+                        <div class="row" >
+                            <div style="margin-left: 100px;" >Tổng số lượng các khách hàng : <b><?php echo  $total_user  ?></b></div> 
+                        </div>
+                        <div class="row" >
                             <!-- <div style="margin-left: 100px;" >Sản phẩm bán chạy nhất : <b><?php echo $tong_don_hang  ?></b></div>  -->
                         </div>
                     </div>

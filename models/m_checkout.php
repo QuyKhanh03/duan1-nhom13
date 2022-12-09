@@ -39,5 +39,10 @@ class m_checkout extends database
         $this->setQuery($sql);
         return $this->execute();
     }
+    public function update_user($phone,$address,$id) {
+        $sql = "UPDATE users set users.phone = ?, users.address = ? where id_user = ?";
+        $this->setQuery($sql);
+        return $this->execute(array($phone,$address,$id));
+    }
    
 }

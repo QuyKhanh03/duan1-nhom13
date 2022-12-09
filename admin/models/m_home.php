@@ -27,4 +27,9 @@ class m_home extends database {
         $this->setQuery($sql);
         return $this->loadRecord();
     }
+    public function binh_luan() {
+        $sql = "select count(*) from comments";
+        $this->setQuery($sql);
+        return $this->loadRecord();
+    }
 }
