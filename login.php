@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +11,9 @@
     <title>Document</title>
 </head>
 <style>
-    @use postcss-preset-env {
+    /* @use postcss-preset-env {
         stage: 0;
-    }
+    } */
 
     /* config.css */
 
@@ -244,7 +247,11 @@
                     </svg><span class="hidden">Password</span></label>
                 <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
             </div>
-
+            <?php if (isset($_SESSION['error_login'])) { ?>
+                            <div class="alert alert-danger" role="alert">
+                               Bạn đã sai tài khoản mật khẩu
+                            </div>
+                            <?php }?>
             <div class="form__field">
                 <input type="submit" name="login" value="Sign In">
             </div>

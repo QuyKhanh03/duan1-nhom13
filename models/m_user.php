@@ -34,4 +34,9 @@ class m_user extends database {
         $this ->setQuery($sql);
         return $this -> loadAllRows(array($id));
     }
+    public function update_info($name,$email,$address,$phone,$id) {
+        $sql = "update users set username = ?,email = ?,address = ?,phone =? where id_user = ?";
+        $this->setQuery($sql);
+        return $this->execute(array($name,$email,$address,$phone,$id));
+    }
 }
