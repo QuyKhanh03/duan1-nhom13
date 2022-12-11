@@ -43,36 +43,6 @@ class c_user
             }
         }
     }
-    // public function editPrd()
-    // {
-    //     if (isset($_GET["id"])) {
-    //         $m_prd = new m_product();
-    //         $read_cate = $m_prd->read_cate();
-    //         $id = $_GET["id"];
-    //         $showPrd_detail = $m_prd->read_prd_by_id($id);
-    //         if (isset($_POST["btn"])) {
-    //             $ten_san_pham = $_POST['ten_san_pham'];
-    //             $chose = $_POST['chose'];
-    //             $mota = $_POST['mo_ta'];
-    //             $don_gia = $_POST['don_gia'];
-    //             $hinh = ($_FILES['f_hinh_anh']['error'] == 0) ? $_FILES['f_hinh_anh']['name'] : "";
-    //             $results = $m_prd->update_product_by_id($ten_san_pham, $hinh, $don_gia, $mota, $chose, $id);
-    //             if ($results==true) {
-    //                 if ($hinh != "") {
-    //                     move_uploaded_file($_FILES['f_hinh_anh']['tmp_name'], "../public/layout/img/product/$hinh");
-    //                 }
-    //                 // echo print_r($results);
-    //                 // die();
-
-    //                 header("location:product.php");
-    //             } else {
-    //                 echo "<script>alert('thêm không thành công')</script>";
-    //             }
-    //         }
-    //     }
-    //     $view = "views/product/v_editPrd.php";
-    //     include "templates/layout.php";
-    // }
     public function editUser()
     {
         if (isset($_GET['id'])) {
@@ -88,8 +58,6 @@ class c_user
                 $role=$_POST["chose"];
                 $result = $m_user->update_user_by_id($username,$email,$role,$id);
                 if($result) {
-                    
-                    // echo "<script>alert('thành công')</script>";
                     header("location:user.php");
                 }else{
                     echo "fail";
@@ -115,7 +83,7 @@ class c_user
                 header("location:home.php");
             } else {
                 $_SESSION['error_login'] = "Sai thông tin đăng nhập";
-                header("location:login.php");
+                header("location:login-admin.php");
             }
         }
     }
