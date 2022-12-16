@@ -28,24 +28,12 @@
                         <div class="col-md-6">
                             <div class="shop-top-left">
                                 <ul>
-                                    <li><a href="#"><i class="flaticon-menu"></i> FILTER</a></li>
                                     <li>Showing 1–9 of 80 results</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="shop-top-right">
-                                <form action="#">
-                                    <select name="select">
-                                        <option value="">Sort by newness</option>
-                                        <option>Free Shipping</option>
-                                        <option>Best Match</option>
-                                        <option>Newest Item</option>
-                                        <option>Size A - Z</option>
-                                    </select>
-                                </form>
-                                <div class="shop-search"><a href="#"><i class="flaticon-search"></i></a></div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -57,7 +45,7 @@
                                 <a href="prd_detail.php?id=<?php echo $value->id ?>"><img style="width: 270px; height: 290px;" src="public/layout/img/product/<?php echo $value->image ?>" alt=""></a>
                                 <div class="product-overlay-action">
                                     <ul>
-                                        <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
+                                        
                                         <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
                                     </ul>
                                 </div>

@@ -1,6 +1,7 @@
 <?php
 // echo "<pre>";
 // echo print_r($_SESSION["cart"]);
+
 ?>
 
 <main>
@@ -53,31 +54,28 @@
                                         <?php
                                         $totals = 0;
                                         $qty = 0;
-                                        
+                                        $subtotal = 1;
                                             foreach ($_SESSION["cart"] as $key) { ?>
-                                                <tr>
+                                               <tr>
                                                     <td class="product-thumbnail"><a href="#"><img src="public/layout/img/product/<?php echo $key[2] ?>" alt=""></a></td>
                                                     <td class="product-name">
                                                         <h4><a href="#"><?php echo $key[1]  ?></a></h4>
                                                     </td>
                                                     <td class="product-price"> <?php echo $key[3]  ?> VNĐ</td>
                                                     <td class="product-quantity">
-
                                                         <input id="price" type="hidden" name="price" value="<?php echo $key[3] ?>">
-                                                        <?php
-                                                        //  $qty +=$key[4]
-                                                        ?>
-                                                        <input id="quantity" readonly="" name="quantity" type="text" min="1" class="in-num" value="<?php echo $key[4] ?>">
+                                                        <?php  ?>
+                                                        <?php echo $key[4] ?>          
                                                     </td>
         
                                                     <?php
-                                                    $subtotal = 1;
+                                                    
                                                     $subtotal = $key[4] * $key[3];
                                                     $totals += $subtotal;
                                                     ?>
                                                     <td class="product-subtotal"><span id="subtotal"> <?php echo $subtotal ?> VND</span></td>
                                                     <td class="product-delete"><a href="delete_cart.php?id_cart=<?php echo $key[0] ?>"><i class="flaticon-trash"></i></a></td>
-                                                </tr>
+                                                </tr>     
                                         <?php
 
                                             }
@@ -99,14 +97,15 @@
                     <!-- <a href="checkout.php" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">PROCEED TO CHECKOUT</a> -->
                     <form action="checkout.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone" style="display: block;padding: 5px;width: 300px;" placeholder="Phone ...">
+                        <input required type="text" name="phone" style="display: block;padding: 5px;width: 300px;" placeholder="Phone ...">
                         <label style="margin-top: 10px;" for="address">Delivery address</label>
-                        <textarea name="address" id="address" cols="100%" rows="5" style="display: block; padding: 10px; margin-top: 10px;" placeholder="Delivery address..."></textarea>
-                        <input type="hidden" value="<?php echo $totals ?>" name="tongtien">
-                        <button name="create-order" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">Thanh toán offline</button>
-                    </form>
 
-                    <form action="momo.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
+                        <textarea required name="address" id="address" cols="100%" rows="5" style="display: block; padding: 10px; margin-top: 10px;" placeholder="Delivery address..."></textarea>
+                        <input type="hidden" value="<?php echo $totals  ?>" name="tongtien">
+                        <b>Thanh toan khi nhan hang</b> <br>
+                        <button name="create-order" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">ORDER NOW</button>
+                        
+                         <form action="momo.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
                         <input type="hidden" name="total_congthanhtoan" value="<?php echo $totals ?>">
                         <button name="captureWallet" class="btn" style="margin: 20px 0 ;display:in; background-color: #36363b; color: #fff ">Thanh toán QR MOMO</button>
                     </form>
@@ -114,6 +113,7 @@
                     <form action="momo.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
                         <input type="hidden" name="total_congthanhtoan" value="<?php echo $totals ?>">
                         <button name="payWithATM" class="btn" style="margin: 20px 0 ; background-color: #36363b; color: #fff">Thanh toán ATM MOMO</button>
+
                     </form>
                 </div>
             </div>
