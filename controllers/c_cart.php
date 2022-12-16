@@ -136,7 +136,6 @@ class c_cart
         
         $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
         
-        
         $partnerCode = 'MOMOBKUN20180529';
         $accessKey = 'klm05TvNBzhg7h7j';
         $serectKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
@@ -147,8 +146,6 @@ class c_cart
         $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
         $extraData = "";
         
-        
-        if (isset($_POST['payWithATM'])) {
             $partnerCode = $partnerCode;
             $accessKey = $accessKey;
             $serectKey = $serectKey;
@@ -160,7 +157,11 @@ class c_cart
             $extraData = $extraData;
         
             $requestId = time() . "";
-            $requestType = "payWithATM";
+            if (isset($_POST['payWithATM'])){
+                $requestType = "payWithATM";
+            }elseif(isset($_POST['captureWallet'])){
+                $requestType = "captureWallet";
+            }
             // $extraData = ($_POST["extraData"] ? $_POST["extraData"] : "");
             //before sign HMAC SHA256 signature
             $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
@@ -182,47 +183,10 @@ class c_cart
             $jsonResult = json_decode($result, true);  // decode json
         
             //Just a example, please check more in there
-        
+
             header('Location: ' . $jsonResult['payUrl']);
             unset($_SESSION["cart"]);
-        }elseif(isset($_POST['captureWallet'])){
-            $partnerCode = $partnerCode;
-            $accessKey = $accessKey;
-            $serectKey = $serectKey;
-            $orderId = time(); // Mã đơn hàng
-            $orderInfo = $orderInfo ;
-            $amount = $amount;
-            // $ipnUrl = $_POST["ipnUrl"];
-            $redirectUrl = $redirectUrl;
-            $extraData = $extraData;
-        
-            $requestId = time() . "";
-            $requestType = "captureWallet";
-            // $extraData = ($_POST["extraData"] ? $_POST["extraData"] : "");
-            //before sign HMAC SHA256 signature
-            $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
-            $signature = hash_hmac("sha256", $rawHash, $serectKey);
-            $data = array('partnerCode' => $partnerCode,
-                'partnerName' => "Test",
-                "storeId" => "MomoTestStore",
-                'requestId' => $requestId,
-                'amount' => $amount,
-                'orderId' => $orderId,
-                'orderInfo' => $orderInfo,
-                'redirectUrl' => $redirectUrl,
-                'ipnUrl' => $ipnUrl,
-                'lang' => 'vi',
-                'extraData' => $extraData,
-                'requestType' => $requestType,
-                'signature' => $signature);
-            $result = execPostRequest($endpoint, json_encode($data));
-            $jsonResult = json_decode($result, true);  // decode json
-        
-            //Just a example, please check more in there
-        
-            header('Location: ' . $jsonResult['payUrl']);
-            unset($_SESSION["cart"]);
-        }
+
     }
 
     public function index()
