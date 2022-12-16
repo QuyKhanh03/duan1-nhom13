@@ -101,16 +101,14 @@
                         <label style="margin-top: 10px;" for="address">Delivery address</label>
 
                         <textarea required name="address" id="address" cols="100%" rows="5" style="display: block; padding: 10px; margin-top: 10px;" placeholder="Delivery address..."></textarea>
+
                         <input type="hidden" value="<?php echo $totals  ?>" name="tongtien">
-                        <b>Thanh toan khi nhan hang</b> <br>
-                        <button name="create-order" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">ORDER NOW</button>
+                        <button name="create-order" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">Thanh toán Offline</button>
                         
-                         <form action="momo.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
                         <input type="hidden" name="total_congthanhtoan" value="<?php echo $totals ?>">
                         <button name="captureWallet" class="btn" style="margin: 20px 0 ;display:in; background-color: #36363b; color: #fff ">Thanh toán QR MOMO</button>
-                    </form>
+                    
 
-                    <form action="momo.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
                         <input type="hidden" name="total_congthanhtoan" value="<?php echo $totals ?>">
                         <button name="payWithATM" class="btn" style="margin: 20px 0 ; background-color: #36363b; color: #fff">Thanh toán ATM MOMO</button>
 
