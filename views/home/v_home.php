@@ -219,7 +219,7 @@
                     <div class="row features-product-active">
                         <?php foreach ($products as $key => $value) {
                             if ($value->quantity > 0) { ?>
-                                <div class="col">
+                                <div class="col" >
                                     <div class="features-product-item mb-30">
                                         <div class="features-product-thumb">
                                             <!-- <div class="discount-tag">-20%</div> -->
@@ -234,25 +234,10 @@
                                             </div>
                                         </div>
                                         <div class="features-product-content">
-                                            <div class="rating">
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
+                                            
                                             <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
                                             <p class="price">$<?php echo $value->price ?></p>
-                                            <div class="features-product-bottom">
-                                                <ul>
-                                                    <li class="color-option">
-                                                        <span class="gray"></span>
-                                                        <span class="cyan"></span>
-                                                        <span class="orange"></span>
-                                                    </li>
-                                                    <!-- <li class="limited-time"><a href="#">Limited-Time Offer!</a></li> -->
-                                                </ul>
-                                            </div>
+                                            
                                         </div>
                                         <form action="action-cart.php" method="POST">
                                             <input type="hidden" name="product_id" value="<?php echo $value->id ?>">
@@ -326,18 +311,20 @@
                                                 </div>
                                             </div>
                                             <div class="features-product-content" style="height: 150px;">
-                                                <div class="rating">
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                </div>
+                                                
                                                 <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
                                                 <p class="price">$<?php echo $value->price ?></p>
 
                                             </div>
-                                            <div class="features-product-cart"><a href="cart.html">add to cart</a></div>
+                                            <form action="action-cart.php" method="POST">
+                                            <input type="hidden" name="product_id" value="<?php echo $value->id ?>">
+                                            <input type="hidden" value="1" name="so-luong">
+                                            <input type="hidden" name="ten-sp" value="<?php echo $value->name_product ?>">
+                                            <input type="hidden" name="gia" value="<?php echo $value->price ?>">
+                                            <input type="hidden" name="hinh" value="<?php echo $value->image ?>">
+
+                                            <input class="features-product-cart" name="add-cart" type="submit" value="ADD TO CART" style="text-transform: uppercase;color: #e9e9e9;padding: 8px 0;background: #202026;">
+                                        </form>
                                         </div>
                                     </div>
                                 <?php } ?>
