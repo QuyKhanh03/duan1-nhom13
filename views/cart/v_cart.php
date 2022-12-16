@@ -61,7 +61,7 @@
                                                     <td class="product-name">
                                                         <h4><a href="#"><?php echo $key[1]  ?></a></h4>
                                                     </td>
-                                                    <td class="product-price">$ <?php echo $key[3]  ?>.00</td>
+                                                    <td class="product-price"> <?php echo $key[3]  ?> VNĐ</td>
                                                     <td class="product-quantity">
                                                         <input id="price" type="hidden" name="price" value="<?php echo $key[3] ?>">
                                                         <?php  ?>
@@ -73,7 +73,7 @@
                                                     $subtotal = $key[4] * $key[3];
                                                     $totals += $subtotal;
                                                     ?>
-                                                    <td class="product-subtotal"><span id="subtotal">$ <?php echo $subtotal ?></span></td>
+                                                    <td class="product-subtotal"><span id="subtotal"> <?php echo $subtotal ?> VND</span></td>
                                                     <td class="product-delete"><a href="delete_cart.php?id_cart=<?php echo $key[0] ?>"><i class="flaticon-trash"></i></a></td>
                                                 </tr>     
                                         <?php
@@ -83,7 +83,7 @@
                                     </tbody>      
                                     <tr>
                                         <td>Totals</td>
-                                        <td>$<?php echo $totals ?></td>
+                                        <td><?php echo $totals ?> VNĐ</td>
                                     </tr>
                                 </table>
                                 <?php } else{
@@ -99,10 +99,21 @@
                         <label for="phone">Phone</label>
                         <input required type="text" name="phone" style="display: block;padding: 5px;width: 300px;" placeholder="Phone ...">
                         <label style="margin-top: 10px;" for="address">Delivery address</label>
+
                         <textarea required name="address" id="address" cols="100%" rows="5" style="display: block; padding: 10px; margin-top: 10px;" placeholder="Delivery address..."></textarea>
                         <input type="hidden" value="<?php echo $totals  ?>" name="tongtien">
                         <b>Thanh toan khi nhan hang</b> <br>
                         <button name="create-order" class="btn" style="margin: 30px 0 ; background-color: #36363b; color: #fff">ORDER NOW</button>
+                        
+                         <form action="momo.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
+                        <input type="hidden" name="total_congthanhtoan" value="<?php echo $totals ?>">
+                        <button name="captureWallet" class="btn" style="margin: 20px 0 ;display:in; background-color: #36363b; color: #fff ">Thanh toán QR MOMO</button>
+                    </form>
+
+                    <form action="momo.php" method="POST" onsubmit="return confirm('Ban co chac chan muon dat hang')">
+                        <input type="hidden" name="total_congthanhtoan" value="<?php echo $totals ?>">
+                        <button name="payWithATM" class="btn" style="margin: 20px 0 ; background-color: #36363b; color: #fff">Thanh toán ATM MOMO</button>
+
                     </form>
                 </div>
             </div>
