@@ -28,22 +28,14 @@
                             <div class="col-md-6">
                                 <div class="shop-top-left">
                                     <ul>
-                                        <li><a href="#"><i class="flaticon-menu"></i> FILTER</a></li>
+                                        
                                         <li>Showing 1–9 of 80 results</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="shop-top-right">
-                                    <form action="#">
-                                        <select name="select">
-                                            <option value="">Sort by newness</option>
-                                            <option>Free Shipping</option>
-                                            <option>Best Match</option>
-                                            <option>Newest Item</option>
-                                            <option>Size A - Z</option>
-                                        </select>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -57,7 +49,7 @@
                                         <a href="prd_detail.php?id=<?php echo $value->id ?>"><img style="width: 250px; height: 280px;" src="public/layout/img/product/<?php echo $value->image ?>" alt=""></a>
                                         <div class="product-overlay-action">
                                             <ul>
-                                                <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
+                                                
                                                 <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
                                             </ul>
                                         </div>
@@ -70,18 +62,7 @@
                             </div>
                         <?php } ?>
                     </div>
-                    <div class="pagination-wrap">
-                        <ul>
-                            <li class="prev"><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">10</a></li>
-                            <li class="next"><a href="#">Next</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="col-xl-3 col-lg-4">
                     <aside class="shop-sidebar">

@@ -6,6 +6,7 @@ if (!isset($_SESSION["cart"])) {
 }
 class c_cart
 {
+
     public function xem_gio_hang()
     {
         if (isset($_SESSION["user"])) {
@@ -16,8 +17,23 @@ class c_cart
                 $price = $_POST["gia"];
                 $quantily = $_POST["so-luong"];
                 $total = $price * $quantily;
-                $prd_add = [$id, $name, $image, $price, $quantily, $total];
-                array_push($_SESSION["cart"], $prd_add);
+                $i = 0;
+                $flag = 0;
+               if(isset($_SESSION["cart"]) && (count($_SESSION["cart"])>0)) {
+                foreach ($_SESSION["cart"] as $key) {
+                    if($key[0]==$id) {
+                        $quantily +=$key[4];
+                        $flag =1;
+                        $_SESSION["cart"][$i][4] = $quantily;
+                        break;
+                    }
+                    $i++;
+                }
+               }
+                if($flag == 0) {
+                    $prd_add = [$id, $name, $image, $price, $quantily, $total];
+                    array_push($_SESSION["cart"], $prd_add);
+                }
             }
         }
         $view = "views/cart/v_cart.php";
@@ -31,20 +47,31 @@ class c_cart
             $image = $_POST["hinh"];
             $price = $_POST["gia"];
             $quantily = $_POST["so-luong"];
-            $prd_add = [$id, $name, $image, $price, $quantily];
-            array_push($_SESSION["cart"], $prd_add);
+            $total = $price * $quantily;
+            // $prd_add = [$id, $name, $image, $price, $quantily];
+            // array_push($_SESSION["cart"], $prd_add);
+            $i = 0;
+            $flag = 0;
+           if(isset($_SESSION["cart"]) && (count($_SESSION["cart"])>0)) {
+            foreach ($_SESSION["cart"] as $key) {
+                if($key[0]==$id) {
+                    $quantily +=$key[4];
+                    $flag =1;
+                    $_SESSION["cart"][$i][4] = $quantily;
+                    break;
+                }
+                $i++;
+            }
+           }
+            if($flag == 0) {
+                $prd_add = [$id, $name, $image, $price, $quantily, $total];
+                array_push($_SESSION["cart"], $prd_add);
+            }
             header("location:cart.php");
         }
     }
 
-    public function cart()
-    {
-        if (isset($_SESSION["cart"])) {
-            return $_SESSION["cart"];
-        } else {
-            return false;
-        }
-    }
+
 
     public function xoa1_hang_ve_cart()
     {
@@ -90,14 +117,14 @@ class c_cart
                 $address = $_POST["address"];
                 $phone = $_POST["phone"];
                 $m_checkout->insertOrder($id, $totals);
-                $m_checkout->update_user($phone,$address,$id);
+                $m_checkout->update_user($phone, $address, $id);
                 $order = $m_checkout->getOrder();
                 $id_order = $order[0]->id_order;
                 if (isset($_SESSION["cart"])) {
                     foreach ($_SESSION["cart"] as $key) {
                         $total_item = ($key[3] * $key[4]);
                         $m_checkout->orderDetail($key[1], $key[4], $id_order, $total_item, $key[2]);
-                        $m_checkout->update_quantity($key[0],$key[4]);
+                        $m_checkout->update_quantity($key[0], $key[4]);
                     }
                     // echo "<pre>";
                     // echo print_r($m_checkout->orderDetail($key[1],$key[4],$id_order,$total_item,$key[2]));
@@ -119,13 +146,13 @@ class c_cart
             $id_user = $_SESSION["user"]->id_user;
             $user = $m_user->getUserById($id_user);
             $order = $m_user->getOrderByIdUser($id_user);
-
         }
         $view = "views/bill/v_bill.php";
         include "templates/front-end/layout.php";
     }
-    public function detail_bill() {
-        if(isset($_GET["id_order"])) {
+    public function detail_bill()
+    {
+        if (isset($_GET["id_order"])) {
             $id_order = $_GET["id_order"];
             include "models/m_checkout.php";
             $m_checkout = new m_checkout();
@@ -134,16 +161,16 @@ class c_cart
         $view = "views/bill/v_detail_bill.php";
         include "templates/front-end/layout.php";
     }
-    public function delete_order() {
-        if(isset($_GET["id_order"])) {
+    public function delete_order()
+    {
+        if (isset($_GET["id_order"])) {
             include "models/m_checkout.php";
             $m_checkout = new m_checkout();
             $id_order = $_GET["id_order"];
             $result = $m_checkout->delete_order_by_id($id_order);
-            if($result) {
+            if ($result) {
                 header("location:bills.php");
             }
         }
-        
     }
 }
