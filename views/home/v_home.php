@@ -228,7 +228,6 @@
                                             </a>
                                             <div class="product-overlay-action">
                                                 <ul>
-                                                    <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
                                                     <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
                                                 </ul>
                                             </div>
@@ -236,7 +235,7 @@
                                         <div class="features-product-content">
                                             
                                             <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
-                                            <p class="price">$<?php echo $value->price ?></p>
+                                            <p class="price"><?php echo $value->price ?> VND</p>
                                             
                                         </div>
                                         <form action="action-cart.php" method="POST">
@@ -292,7 +291,7 @@
                         <div class="tab-pane show active" id="accessories" role="tabpanel" aria-labelledby="accessories-tab">
 
                             <div class="trending-products-banner banner-animation">
-                                <a href="shop-sidebar.html"><img src="public/layout/img/images/trending_banner.jpg" alt=""></a>
+                                <a href="shop.php"><img src="public/layout/img/images/trending_banner.jpg" alt=""></a>
                             </div>
                             <div class="row trending-product-active">
                                 <?php foreach ($trend as $value) { ?>
@@ -305,7 +304,6 @@
                                                 </a>
                                                 <div class="product-overlay-action">
                                                     <ul>
-                                                        <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
                                                         <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
                                                     </ul>
                                                 </div>
@@ -313,7 +311,7 @@
                                             <div class="features-product-content" style="height: 150px;">
                                                 
                                                 <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
-                                                <p class="price">$<?php echo $value->price ?></p>
+                                                <p class="price"><?php echo $value->price ?> VND</p>
 
                                             </div>
                                             <form action="action-cart.php" method="POST">

@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-5 col-md-6">
                     <div class="header-top-offer">
-                        <p>SUMMER SALE UP TO <span>70% OFF.</span> SHOP NOW</p>
+                        <p>WINTER SALE UP TO <span>70% OFF.</span> SHOP NOW</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -98,7 +98,7 @@
                             </div>
                             <div class="header-action d-none d-md-block">
                                 <ul>
-                                    <li class="shipping-offer">Free Shipping on Orders <span>$39+</span></li>
+                                    <li class="shipping-offer">Free Shipping on Orders <span>150.000VND</span></li>
                                     <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search-interface-symbol"></i></a></li>
                                     <li class="sidebar-toggle-btn"><a href="#" class="navSidebar-button"><img src="public/layout/img/icon/sidebar_toggle_icon.png" alt=""></a></li>
                                 </ul>

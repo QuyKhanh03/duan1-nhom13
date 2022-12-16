@@ -53,7 +53,7 @@
 
                             <p class="style-name">Style Name : <?php echo $value->name ?> </p>
 
-                            <div class="price">Price : $ <?php echo $value->price ?>.00</div>
+                            <div class="price">Price :  <?php echo $value->price ?> VND</div>
 
                             <div class="perched-info">
                                 <div class="cart-plus-minus">
@@ -166,17 +166,16 @@
                         <div class="col-xl-3">
                             <div class="new-arrival-item text-center">
                                 <div class="thumb mb-25">
-                                    <a href="shop-details.html"><img src="public/layout/img/product/<?php echo $value->image ?>" alt=""></a>
+                                    <a href="shop-details.html"><img src="public/layout/img/product/<?php echo $value->image ?>" style="width: 200px; height: 160px;display:inline-block;" alt=""></a>
                                     <div class="product-overlay-action">
                                         <ul>
-                                            <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                            <li><a href="prd_detail.php?id=<?php echo $value->id ?>"><i class="far fa-eye"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="content">
-                                    <h5><a href="shop-details.html">Bomber in Cotton</a></h5>
-                                    <span class="price">$37.00</span>
+                                    <h5><a href="prd_detail.php?id=<?php echo $value->id ?>"><?php echo $value->name_product ?></a></h5>
+                                    <span class="price"><?php echo $value->price ?> VND</span>
                                 </div>
                             </div>
                         </div>
