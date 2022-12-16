@@ -172,18 +172,7 @@ class c_cart
         $redirectUrl = "http://localhost/duan1-nhom13/cart.php";
         $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
         $extraData = "";
-        
-            $partnerCode = $partnerCode;
-            $accessKey = $accessKey;
-            $serectKey = $serectKey;
-            $orderId = time(); // Mã đơn hàng
-            $orderInfo = $orderInfo ;
-            $amount = $amount;
-            // $ipnUrl = $_POST["ipnUrl"];
-            $redirectUrl = $redirectUrl;
-            $extraData = $extraData;
-        
-            $requestId = time() . "";
+        $requestId = time() . "";
             if (isset($_POST['payWithATM'])){
                 $requestType = "payWithATM";
             }elseif(isset($_POST['captureWallet'])){
@@ -193,7 +182,8 @@ class c_cart
             //before sign HMAC SHA256 signature
             $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
             $signature = hash_hmac("sha256", $rawHash, $serectKey);
-            $data = array('partnerCode' => $partnerCode,
+            $data = array(
+                'partnerCode' => $partnerCode,
                 'partnerName' => "Test",
                 "storeId" => "MomoTestStore",
                 'requestId' => $requestId,
@@ -212,7 +202,7 @@ class c_cart
             //Just a example, please check more in there
 
             header('Location: ' . $jsonResult['payUrl']);
-            unset($_SESSION["cart"]);
+            // unset($_SESSION["cart"]);
 
     }
 
