@@ -59,12 +59,7 @@ class c_product
                 $ten_san_pham = $_POST["ten_san_pham"];
                 $chose = $_POST['chose'];
                 $mota = $_POST["mo_ta"];
-                echo '<pre>';
-                // print_r($hinh_anh_moi);
-                echo '</pre>';
-                // echo "<pre>";
-                // echo print_r( $hinh_anh_moi);
-                // die();
+                
                 
                 $don_gia = $_POST["don_gia"];
                 $so_luong = $_POST["so_luong"];
