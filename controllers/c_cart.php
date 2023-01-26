@@ -6,7 +6,6 @@ if (!isset($_SESSION["cart"])) {
 }
 class c_cart
 {
-
     public function xem_gio_hang()
     {
         if (isset($_SESSION["user"])) {
@@ -48,8 +47,6 @@ class c_cart
             $price = $_POST["gia"];
             $quantily = $_POST["so-luong"];
             $total = $price * $quantily;
-            // $prd_add = [$id, $name, $image, $price, $quantily];
-            // array_push($_SESSION["cart"], $prd_add);
             $i = 0;
             $flag = 0;
            if(isset($_SESSION["cart"]) && (count($_SESSION["cart"])>0)) {
@@ -70,9 +67,6 @@ class c_cart
             header("location:cart.php");
         }
     }
-
-
-
     public function xoa1_hang_ve_cart()
     {
         if (isset($_GET["id_cart"])) {
